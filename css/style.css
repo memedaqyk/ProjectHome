@@ -1,0 +1,367 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+.icon {
+    /* 通过设置 font-size 来改变图标大小 */
+    width: 1em;
+    height: 1em;
+    /* 图标和文字相邻时，垂直对齐 */
+    vertical-align: -0.15em;
+    /* 通过设置 color 来改变 SVG 的颜色/fill */
+    fill: currentColor;
+    /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+    overflow: hidden;
+}
+
+/* ----- BUTTONS ----- */
+
+.product-view {
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: left;
+}
+
+.products {
+    position: relative;
+    index: 1;
+}
+
+.icon {
+    display: inline-block;
+    font-size: 40px;
+    padding: 10px;
+    background: #ddd;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.product-view .active {
+    background: #bbb;
+}
+
+/* ----- GALLERY VIEW ----- */
+
+.products.gallery {
+    -webkit-column-width: 300px;
+    column-width: 300px;
+    -webkit-column-gap: 5px;
+    column-gap: 5px;
+    padding: 0 5px;
+    font-size: 0;
+    min-height: 700px;
+    padding-top: 20px;
+}
+
+.products figure figcaption {
+    text-align: center;
+    height: 100px;
+    padding: 20px 0;
+}
+
+.products figure {
+    text-align: center;
+}
+
+.products.list figure:hover {
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 15px 15px 5px #888;
+    color: black;
+}
+
+.products.gallery figure {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    margin: 0 0 5px 0;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.products a {
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.products.gallery figure::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background 300ms;
+}
+
+.products.gallery figure img {
+    width: 100%;
+    height: auto;
+}
+
+.products.gallery figure figcaption {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 100%;
+    max-height: 100%;
+    /* padding: 20px; */
+    font-size: 16px;
+    font-weight: 500;
+    color: #ddd;
+    text-shadow: 0 0 1px #000;
+    opacity: 0;
+    overflow: auto;
+    transition: opacity 300ms;
+    -webkit-overflow-scrolling: touch;
+}
+
+.products.gallery figure figcaption::-webkit-scrollbar {
+    width: 4px;
+}
+
+.products.gallery figure figcaption::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.products.gallery figure figcaption::-webkit-scrollbar-thumb {
+    background: #bbb;
+}
+
+.products.gallery figure figcaption::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.products.gallery figure:hover::after {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.products.gallery figure:hover figcaption {
+    opacity: 1;
+}
+
+/* ----- LIST VIEW ----- */
+
+.products.list {
+    padding: 0 5% 100px;
+}
+
+.products.list figure {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background: #eee;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+
+.products.list figure img {
+    width: 100%;
+    height: auto;
+}
+
+.products.list figure figcaption {
+    /* padding: 20px; */
+    line-height: 1.4;
+}
+
+/* Header */
+
+.large-header {
+    position: absolute;
+    width: 100%;
+    background: #94B5D5;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: -9;
+    height: auto !important;
+    margin-top: 88px;
+}
+
+.large-header canvas {
+    position: absolute;
+}
+
+@media only screen and (max-width: 768px) {
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
+}
+
+/* ClearFix */
+
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+/* Header Styles */
+
+header {
+    width: 100%;
+    height: 88px;
+    background: #F0F8FF;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.small {
+    height: 50px;
+}
+
+.small .logo {
+    font-size: 2.6em;
+    /* margin-top: 5px; */
+}
+
+nav {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 3.5em;
+    font-weight: 400;
+    float: left;
+    /* padding: 5px; */
+    margin: 0 !important;
+}
+
+/* Transitions */
+
+header, .logo {
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+/* Section Styles */
+
+/* footer */
+
+
+/* Colors */
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Raleway, sans-serif;
+  background-color: #fff;
+}
+
+footer {
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+bottom: 0;
+left: 0;
+  /* margin: 2em 0; */
+  height: 70px;
+  background-color: #999;
+}
+footer .copyright {
+  width: 50%;
+  float: left;
+}
+@media (max-width: 600px) {
+  footer .copyright {
+    width: 100%;
+  }
+}
+footer .copyright p {
+  padding-left: 10%;
+  color: white;
+  font-size: 0.7em;
+  line-height: 70px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+  footer .copyright p {
+    text-align: center;
+    padding: 0;
+  }
+}
+footer .social {
+  width: 50%;
+  float: right;
+}
+@media (max-width: 600px) {
+  footer .social {
+    width: 100%;
+  }
+}
+footer .social a {
+  float: left;
+  line-height: 70px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+footer .social a:hover {
+  background-color: #222;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.linked {
+  background-color: #1E83AE;
+  font-size: 1.2em;
+  width: 20%;
+}
+
+.github {
+  background-color: #3D5B94;
+  font-size: 1.2em;
+  width: 20%;
+}
+
+.blog {
+  background-color: #3DACDD;
+  font-size: 1.2em;
+  width: 20%;
+}
+
+.support {
+  background-color: #6dcd9a;
+  font-size: 1em;
+  width: 40%;
+}
